@@ -2,9 +2,17 @@
 @import "imports";
 
 .container {
-	@include grid-row();
+	@include grid-row;
 
 	header,
+	section {
+		@include grid-column;
+	}
+}
+
+footer {
+	@include grid-row;
+
 	section {
 		@include grid-column;
 	}
