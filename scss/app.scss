@@ -1,2 +1,11 @@
 @import "settings";
 @import "imports";
+
+.container {
+	@include grid-row();
+
+	header,
+	section {
+		@include grid-column;
+	}
+}
