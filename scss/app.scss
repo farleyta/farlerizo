@@ -66,3 +66,21 @@ header {
 		line-height: 1.5;
 	}
 }
+
+section {
+	position: relative;
+
+	&:not(.alternate) {
+		&::before {
+			$single-arrow-image: "single-arrow.png";
+			$arrow-padding: ceil(image-height($single-arrow-image) / 5);
+
+			background: image-url($single-arrow-image) no-repeat 0 0;
+			content: '';
+			display: block;
+			height: image-height($single-arrow-image);
+			margin: -$arrow-padding auto $arrow-padding;
+			width: image-width($single-arrow-image);
+		}
+	}
+}
