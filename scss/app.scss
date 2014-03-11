@@ -2,6 +2,7 @@
 
 body {
 	background: image-url("bg.gif");
+	text-align: center;
 }
 
 h2 {
@@ -13,7 +14,7 @@ h2 {
 }
 h3 {
 	color: $primary-color;
-	font-family: 'Shadows Into Light Two', cursive;
+	font-family: "Shadows Into Light Two", cursive;
 }
 a {
 	border-bottom: 1px solid rgba($body-font-color, 0.3);
@@ -53,4 +54,15 @@ footer {
 	max-width: image-width($header-logo-image);
 	margin: $column-gutter auto 0;
 	width: 100%;
+}
+
+header {
+	margin-bottom: $column-gutter;
+
+	a[href="#wedding"] {
+		border-bottom: none;
+		font-family: "Shadows Into Light Two", cursive;
+		font-size: rem-calc(20);
+		line-height: 1.5;
+	}
 }
