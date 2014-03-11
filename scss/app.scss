@@ -1,6 +1,10 @@
 @import "settings";
 @import "imports";
 
+body {
+	background: image-url("bg.gif");
+}
+
 .container {
 	@include grid-row;
 
