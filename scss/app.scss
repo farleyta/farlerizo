@@ -4,6 +4,27 @@ body {
 	background: image-url("bg.gif");
 }
 
+h2 {
+	font-weight: normal;
+
+	strong {
+		font-weight: bold;
+	}
+}
+h3 {
+	color: $primary-color;
+	font-family: 'Shadows Into Light Two', cursive;
+}
+a {
+	border-bottom: 1px solid rgba($body-font-color, 0.3);
+
+	&:hover,
+	&:active {
+		border-bottom: 1px solid rgba($body-font-color, 0.5);
+		color: $primary-color;
+	}
+}
+
 .container {
 	@include grid-row;
 	background: image-url("top-banner-bg.gif") repeat-x 0px 90px;
@@ -11,6 +32,7 @@ body {
 	header,
 	section {
 		@include grid-column;
+		width: 100%;
 	}
 }
 
@@ -29,5 +51,6 @@ footer {
 	padding-top: percentage( image-height($header-logo-image) / image-width($header-logo-image) );
 	height: 0;
 	max-width: image-width($header-logo-image);
+	margin: $column-gutter auto 0;
 	width: 100%;
 }
