@@ -2,17 +2,16 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    sass: {
-      options: {
-        includePaths: ['bower_components/foundation/scss']
-      },
+    compass: {
       dist: {
         options: {
-          outputStyle: 'compressed'
-        },
-        files: {
-          'css/app.css': 'scss/app.scss'
-        }        
+          force: true,
+          outputStyle: 'compressed',          
+          imagesDir: 'img',
+          sassPath: 'scss',
+          cssPath: 'css',
+          importPath: 'bower_components/foundation/scss'
+        }
       }
     },
 
@@ -21,12 +20,13 @@ module.exports = function(grunt) {
 
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass']
+        tasks: ['compass']
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['sass']);
