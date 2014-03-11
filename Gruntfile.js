@@ -21,6 +21,19 @@ module.exports = function(grunt) {
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['compass']
+      },
+
+      livereload: {
+        // Browser live reloading
+        // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
+        options: {
+          livereload: true
+        },
+        files: [
+          'css/*.css',
+          'js/app.js',
+          '*.html'
+        ]
       }
     }
   });
