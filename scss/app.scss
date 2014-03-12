@@ -47,14 +47,7 @@ footer {
 }
 
 .header-logo {
-	$header-logo-image: "header-logo.png";
-	background: image-url($header-logo-image) no-repeat;
-	background-size: 100%;
-	padding-top: percentage( image-height($header-logo-image) / image-width($header-logo-image) );
-	height: 0;
-	max-width: image-width($header-logo-image);
-	margin: $column-gutter auto 0;
-	width: 100%;
+	@include responsive-image-replacement("header-logo.png");
 }
 
 header {
@@ -71,6 +64,7 @@ header {
 section {
 	position: relative;
 
+	// Only apply arrow background to those that aren't in alternate class
 	&:not(.alternate) {
 		&::before {
 			$single-arrow-image: "single-arrow.png";
@@ -82,6 +76,18 @@ section {
 			height: image-height($single-arrow-image);
 			margin: -$arrow-padding auto $arrow-padding;
 			width: image-width($single-arrow-image);
+		}
+		// And give child sections the double arrow bg image
+		&> section {
+			&::before {
+				@include responsive-image-replacement("double-arrow.png");
+				$double-arrow-padding: ceil(image-height("double-arrow.png") / 5);
+
+				content: '';
+				display: block;
+				margin: -$double-arrow-padding auto $double-arrow-padding;
+			}
+			margin-bottom: rem-calc(30);
 		}
 	}
 
