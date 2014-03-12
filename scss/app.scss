@@ -83,4 +83,10 @@ section {
 			width: image-width($single-arrow-image);
 		}
 	}
+
+	p {
+		small {
+			display: block;
+		}
+	}
 }
