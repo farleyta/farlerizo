@@ -125,7 +125,7 @@ footer {
 						content-box, 
 						content-box;
 	background-position: 	top center,
-							0 ( -(image-width($footer-bg-image) / 2) );
+							0 ( -(image-width($footer-bg-image) / 2) + 8px );
 	background-repeat:  	no-repeat, 
 							repeat-x;
 	background-size:  	contain, 
