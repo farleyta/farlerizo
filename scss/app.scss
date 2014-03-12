@@ -1,0 +1,146 @@
+@import "imports";
+
+body {
+	background: image-url("bg.gif");
+	text-align: center;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: rem-calc(32);
+
+	strong {
+		font-weight: bold;
+	}
+}
+h3 {
+	color: $primary-color;
+	font-family: "Shadows Into Light Two", cursive;
+}
+a {
+	border-bottom: 1px solid rgba($body-font-color, 0.3);
+
+	&:hover,
+	&:active {
+		border-bottom: 1px solid rgba($body-font-color, 0.5);
+		color: $primary-color;
+	}
+}
+
+.container {
+	@include grid-row;
+	background: image-url("top-banner-bg.gif") repeat-x 0px 90px;
+
+	header,
+	section {
+		@include grid-column;
+		width: 100%;
+	}
+}
+
+footer {
+	@include grid-row;
+
+	section {
+		@include grid-column;
+	}
+}
+
+.header-logo {
+	@include responsive-image-replacement("header-logo.png");
+}
+
+header {
+	margin-bottom: $column-gutter;
+
+	a[href="#wedding"] {
+		border-bottom: none;
+		font-family: $secondary-font-family;
+		font-size: rem-calc(20);
+		line-height: 1.5;
+	}
+}
+
+section {
+	position: relative;
+
+	// Only apply arrow background to those that aren't in alternate class
+	&:not(.alternate) {
+		&::before {
+			$single-arrow-image: "single-arrow.png";
+			$arrow-padding: ceil(image-height($single-arrow-image) / 5);
+
+			background: image-url($single-arrow-image) no-repeat 0 0;
+			content: '';
+			display: block;
+			height: image-height($single-arrow-image);
+			margin: -$arrow-padding auto $arrow-padding;
+			width: image-width($single-arrow-image);
+		}
+		// And give child sections the double arrow bg image
+		&> section {
+			&::before {
+				@include responsive-image-replacement("double-arrow.png");
+				$double-arrow-padding: ceil(image-height("double-arrow.png") / 5);
+
+				content: '';
+				display: block;
+				margin: -$double-arrow-padding auto $double-arrow-padding;
+			}
+			margin-bottom: rem-calc(30);
+		}
+	}
+
+	p {
+		font-size: rem-calc(20);
+
+		&.alternate {
+			font-family: $secondary-font-family;
+			font-size: rem-calc(16);
+			margin-bottom: rem-calc(8);
+
+			&:first-child {
+				margin-top: rem-calc(14);
+			}
+		}
+
+		small {
+			display: block;
+		}
+	}
+}
+
+footer {
+	$mountains-image: "mountains.png";
+	$footer-bg-image: "footer-bg.png";
+	$experimental-support-for-svg: true;
+
+	// Double BG images: 
+	@include background-image(
+			image-url($mountains-image),
+			image-url($footer-bg-image),
+			linear-gradient(transparent, transparent 20%, $body-font-color 20%, $body-font-color)
+		);					
+	background-origin: 	padding-box,
+						content-box, 
+						content-box;
+	background-position: 	top center,
+							0 ( -(image-width($footer-bg-image) / 2) + 8px );
+	background-repeat:  	no-repeat, 
+							repeat-x;
+	background-size:  	contain, 
+						image-width($footer-bg-image) / 2,
+						contain;
+
+	margin-top: $column-gutter;
+	min-height: image-height($footer-bg-image);
+	padding-top: percentage( image-height($mountains-image) / image-width($mountains-image) );
+
+	section {
+		&:not(.alternate) {
+			&::before {
+				display: none;
+			}
+		}
+	}
+}
