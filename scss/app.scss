@@ -138,6 +138,11 @@ img[alt*="checkbox"] {
 	$checkbox-image: "checkbox.png";
 	height: image-height($checkbox-image) / 2;
 	width: image-width($checkbox-image) / 2;
+
+	@media #{$large-up} {
+		height: image-height($checkbox-image);
+		width: image-width($checkbox-image);		
+	}
 }
 
 footer {
