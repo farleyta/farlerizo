@@ -8,6 +8,51 @@ body {
 	background-position: 	0 rem-calc(90px),
 							top left;
 	text-align: center;
+
+	// Add in the ballons for medium size screens only
+	@media #{$medium-only} {
+
+		background-image: 		image-url("balloon-blue.png"),
+								image-url("balloon-green.png"),
+								image-url("top-banner-bg.gif"),
+								image-url("bg.gif");
+		background-repeat: 		no-repeat,
+								no-repeat,
+								repeat-x,
+								repeat;
+		background-position: 	rem-calc(20) rem-calc(20),
+								right rem-calc(200),
+								0 rem-calc(90),
+								top left;
+		background-size: 		rem-calc(image-width("balloon-blue.png") / 2),
+								rem-calc(image-width("balloon-green.png") / 2),
+								auto,
+								auto;
+	}
+	// And more balloons for larger screens
+	@media #{$large-up} {
+
+		background-image: 		image-url("balloon-blue.png"),
+								image-url("balloon-red.png"),
+								image-url("balloon-green.png"),
+								image-url("top-banner-bg.gif"),
+								image-url("bg.gif");
+		background-repeat: 		no-repeat,
+								no-repeat,
+								no-repeat,
+								repeat-x,
+								repeat;
+		background-position: 	rem-calc(200) rem-calc(20),
+								rem-calc(0) rem-calc(60),
+								right rem-calc(200),
+								0 rem-calc(90),
+								top left;
+		background-size: 		rem-calc(image-width("balloon-blue.png") / 2),
+								rem-calc(image-width("balloon-red.png") / 2),
+								rem-calc(image-width("balloon-green.png") / 2),
+								auto,
+								auto;
+	}
 }
 
 h2 {
