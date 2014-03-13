@@ -31,7 +31,6 @@ a {
 	@include grid-row;
 	background: image-url("top-banner-bg.gif") repeat-x 0px 90px;
 
-	header,
 	section {
 		@include grid-column;
 		width: 100%;
@@ -47,11 +46,13 @@ footer {
 }
 
 .header-logo {
-	@include responsive-image-replacement("header-logo.png");
+	@include responsive-image-replacement("header-logo.png", $restrict-width: false);
 }
 
 header {
-	margin-bottom: $column-gutter;
+	@include grid-column($center: true);
+	margin: 0 auto $column-gutter;
+	max-width: image-width("header-logo.png");
 
 	a[href="#wedding"] {
 		border-bottom: none;
@@ -82,7 +83,7 @@ section {
 		// And give child sections the double arrow bg image
 		&> section {
 			&::before {
-				@include responsive-image-replacement("double-arrow.png");
+				@include responsive-image-replacement("double-arrow.png", $restrict-width: true);
 				$double-arrow-padding: ceil(image-height("double-arrow.png") / 5);
 
 				content: '';
