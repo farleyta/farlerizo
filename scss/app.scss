@@ -41,14 +41,6 @@ a {
 	}
 }
 
-footer {
-	@include grid-row;
-
-	section {
-		@include grid-column;
-	}
-}
-
 .header-logo {
 	@include responsive-image-replacement("header-logo.png");
 }
@@ -157,32 +149,36 @@ img[alt*="checkbox"] {
 }
 
 footer {
+
 	$mountains-image: "mountains.png";
 	$footer-bg-image: "footer-bg.png";
 	$experimental-support-for-svg: true;
+	$footer-bg-size: image-width($footer-bg-image) / 2;
 
 	// Double BG images: 
-	@include background-image(
-			image-url($mountains-image),
-			image-url($footer-bg-image),
-			linear-gradient(transparent, transparent 20%, $body-font-color 20%, $body-font-color)
+	@include background(
+			image-url($footer-bg-image), // the repeated textured lines
+			linear-gradient(transparent, transparent $footer-bg-size, $body-font-color $footer-bg-size, $body-font-color 100%) // a brown bar that is transparent on top for the height of the textured lines
 		);					
-	background-origin: 	padding-box,
-						content-box, 
-						content-box;
-	background-position: 	top center,
-							0 ( -(image-width($footer-bg-image) / 2) + 8px );
-	background-repeat:  	no-repeat, 
-							repeat-x;
-	background-size:  	contain, 
-						image-width($footer-bg-image) / 2,
-						contain;
+	background-origin: 		content-box; // force the bgs to apply inside the padding
+	background-position: 	0 ( -($footer-bg-size) + 8px ), // align the repeated lines to the correct part of the mountains image
+							0 1px; //set to 1px to avoid single pixel appearing underneath solid brown
+	background-repeat:  	repeat-x; // repeat both horizontally only
+	background-size:  		$footer-bg-size,
+							auto;
 
 	margin-top: $column-gutter;
 	min-height: image-height($footer-bg-image);
 	padding-top: percentage( image-height($mountains-image) / image-width($mountains-image) );
 
 	section {
+		@include background-image( image-url($mountains-image) );
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		margin-top: - ( percentage( image-height($mountains-image) / image-width($mountains-image) ) );
+		min-height: image-height($footer-bg-image);
+
 		&:not(.alternate) {
 			&::before {
 				display: none;
