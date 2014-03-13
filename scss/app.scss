@@ -53,6 +53,7 @@ header {
 	@include grid-column($center: true);
 	margin: 0 auto $column-gutter;
 	max-width: image-width("header-logo.png");
+	position: relative;
 
 	a[href="#wedding"] {
 		border-bottom: none;
@@ -62,6 +63,13 @@ header {
 		line-height: 1.5;
 		margin-top: rem-calc(16);
 		max-width: rem-calc(200);
+
+		@media #{$large-up} {
+			position: absolute;
+			top: rem-calc(50);
+			right: -(rem-calc(220));
+			text-align: left;
+		}
 	}
 }
 
