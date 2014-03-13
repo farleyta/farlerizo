@@ -112,6 +112,12 @@ section {
 	}
 }
 
+img[alt*="checkbox"] {
+	$checkbox-image: "checkbox.png";
+	height: image-height($checkbox-image) / 2;
+	width: image-width($checkbox-image) / 2;
+}
+
 footer {
 	$mountains-image: "mountains.png";
 	$footer-bg-image: "footer-bg.png";
