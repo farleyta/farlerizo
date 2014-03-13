@@ -35,18 +35,6 @@ a {
 		@include grid-column;
 		width: 100%;
 	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p,
-	ul,
-	ol {
-		margin: 0 auto rem-calc(20);
-		max-width: rem-calc(780);
-	}
 }
 
 footer {
@@ -113,6 +101,19 @@ section {
 			}
 			margin-bottom: rem-calc(30);
 		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol {
+		margin: 0 auto rem-calc(20);
+		max-width: rem-calc(780);
 	}
 
 	p {
