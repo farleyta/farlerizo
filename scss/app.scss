@@ -1,7 +1,12 @@
 @import "imports";
 
 body {
-	background: image-url("bg.gif");
+	background-image: 		image-url("top-banner-bg.gif"),
+							image-url("bg.gif");
+	background-repeat: 		repeat-x,
+							repeat;
+	background-position: 	0px 90px,
+							top left;
 	text-align: center;
 }
 
@@ -29,7 +34,6 @@ a {
 
 .container {
 	@include grid-row;
-	background: image-url("top-banner-bg.gif") repeat-x 0px 90px;
 
 	section {
 		@include grid-column;
