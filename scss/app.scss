@@ -46,7 +46,7 @@ footer {
 }
 
 .header-logo {
-	@include responsive-image-replacement("header-logo.png", $restrict-width: false);
+	@include responsive-image-replacement("header-logo.png");
 }
 
 header {
@@ -92,12 +92,17 @@ section {
 		// And give child sections the double arrow bg image
 		&> section {
 			&::before {
-				@include responsive-image-replacement("double-arrow.png", $restrict-width: true);
-				$double-arrow-padding: ceil(image-height("double-arrow.png") / 5);
+				$double-arrow-image: "double-arrow.png";
+				$double-arrow-padding: ceil(image-height($double-arrow-image) / 5);
 
+				background: image-url($double-arrow-image) no-repeat center center;
+				background-size: contain;
 				content: '';
 				display: block;
+				height: image-height($double-arrow-image);
 				margin: -$double-arrow-padding auto $double-arrow-padding;
+				max-width: image-width($double-arrow-image);
+				width: 100%;
 			}
 			margin-bottom: rem-calc(30);
 		}

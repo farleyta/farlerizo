@@ -2,7 +2,7 @@
    Mixins
    ========================================================================== */
 
-@mixin responsive-image-replacement($bg-image, $restrict-width) {
+@mixin responsive-image-replacement($bg-image, $restrict-width: false) {
     background: image-url($bg-image) no-repeat;
     background-size: 100%;
     padding-top: percentage( image-height($bg-image) / image-width($bg-image) );
