@@ -55,9 +55,11 @@ header {
 
 	a[href="#wedding"] {
 		border-bottom: none;
+		display: inline-block;
 		font-family: $secondary-font-family;
-		font-size: rem-calc(20);
+		font-size: rem-calc(16);
 		line-height: 1.5;
+		margin-top: rem-calc(16);
 	}
 }
 
