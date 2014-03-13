@@ -98,16 +98,12 @@ section {
 
 		&.alternate {
 			font-family: $secondary-font-family;
-			font-size: rem-calc(16);
+			font-size: rem-calc(20);
 			margin-bottom: rem-calc(8);
 
 			&:first-child {
 				margin-top: rem-calc(14);
 			}
-		}
-
-		small {
-			display: block;
 		}
 	}
 }
