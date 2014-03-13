@@ -11,7 +11,7 @@
     width: 100%;
 
     @if $restrict-width {
-        max-width: image-width($bg-image);
+        max-width: rem-calc(image-width($bg-image));
     }
 }
 
@@ -25,14 +25,14 @@
             linear-gradient(transparent, transparent $footer-bg-size, $body-font-color $footer-bg-size, $body-font-color 100%) // a brown bar that is transparent on top for the height of the textured lines
         );                  
     background-origin:      content-box; // force the bgs to apply inside the padding
-    background-position:    0 ( -($footer-bg-size) + 8px ), // align the repeated lines to the correct part of the mountains image
+    background-position:    0 rem-calc( -($footer-bg-size) + 8px ), // align the repeated lines to the correct part of the mountains image
                             0 1px; //set to 1px to avoid single pixel appearing underneath solid brown
     background-repeat:      repeat-x; // repeat both horizontally only
-    background-size:        $footer-bg-size,
+    background-size:        rem-calc($footer-bg-size),
                             auto;
 
     margin-top: $column-gutter;
-    min-height: image-height($footer-bg-image);
+    min-height: rem-calc(image-height($footer-bg-image));
     padding-top: percentage( image-height($mountains-image) / image-width($mountains-image) );
 
     section {
@@ -41,13 +41,13 @@
         background-repeat: no-repeat;
         background-size: contain;
         margin-top: - ( percentage( image-height($mountains-image) / image-width($mountains-image) ) );
-        min-height: image-height($footer-bg-image);
+        min-height: rem-calc(image-height($footer-bg-image));
 
         @media #{$medium-up} {
-            min-height: image-height($mountains-image) + 40;
+            min-height: rem-calc(image-height($mountains-image) + 40);
         }
         @media #{$large-up} {
-            min-height: image-height($mountains-image) + 150;
+            min-height: rem-calc(image-height($mountains-image) + 150);
         }
     }
 }
