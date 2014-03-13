@@ -89,22 +89,24 @@ section {
 			margin: -$arrow-padding auto $arrow-padding;
 			width: image-width($single-arrow-image);
 		}
-		// And give child sections the double arrow bg image
-		&> section {
-			&::before {
-				$double-arrow-image: "double-arrow.png";
-				$double-arrow-padding: ceil(image-height($double-arrow-image) / 5);
+		// And give child sections the double arrow bg image, on mid-large screens
+		@media #{$medium-up} {
+			&> section {
+				&::before {
+					$double-arrow-image: "double-arrow.png";
+					$double-arrow-padding: ceil(image-height($double-arrow-image) / 5);
 
-				background: image-url($double-arrow-image) no-repeat center center;
-				background-size: contain;
-				content: '';
-				display: block;
-				height: image-height($double-arrow-image);
-				margin: -$double-arrow-padding auto $double-arrow-padding;
-				max-width: image-width($double-arrow-image);
-				width: 100%;
+					background: image-url($double-arrow-image) no-repeat center center;
+					background-size: contain;
+					content: '';
+					display: block;
+					height: image-height($double-arrow-image);
+					margin: -$double-arrow-padding auto $double-arrow-padding;
+					max-width: image-width($double-arrow-image);
+					width: 100%;
+				}
+				margin-bottom: rem-calc(30);
 			}
-			margin-bottom: rem-calc(30);
 		}
 	}
 
