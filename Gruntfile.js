@@ -7,7 +7,6 @@ module.exports = function(grunt) {
         options: {
           force: true,
           outputStyle: 'compressed',
-          httpPath: '/farlerizo/',
           imagesDir: 'img',
           sassPath: 'scss',
           cssPath: 'css',
