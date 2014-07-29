@@ -127,7 +127,7 @@ section {
 			content: '';
 			display: block;
 			height: rem-calc(image-height($single-arrow-image));
-			margin: -$arrow-padding auto $arrow-padding;
+			margin: 0 auto $arrow-padding;
 			width: rem-calc(image-width($single-arrow-image));
 		}
 		// And give child sections the double arrow bg image, on mid-large screens

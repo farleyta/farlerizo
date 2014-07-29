@@ -31,7 +31,7 @@
     background-size:        rem-calc($footer-bg-size),
                             auto;
 
-    margin-top: $column-gutter;
+    margin-top: 0;
     min-height: rem-calc(image-height($footer-bg-image));
     padding-top: percentage( image-height($mountains-image) / image-width($mountains-image) );
 
